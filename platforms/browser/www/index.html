@@ -35,7 +35,10 @@
 			    	$(this).parent().siblings("li").children("a.nav-link").removeClass("custom-active");
 			    	$(this).addClass("custom-active");
 			    	// Lazy
-			    	// $(".content-wrapper").children("div").hide();
+			    	$(".content-wrapper").children("div").hide();
+			    	var dclass = $(this).attr("data-link");
+			    	console.log($("div." + dclass));
+			    	$("div." + dclass).show();
 			    });
 			});
     	</script>
@@ -49,41 +52,42 @@
 			         <i class="fa fa-cog"></i>
 			      </div>
 			 </div>
-        	<div>
-        	</div>
+
         	<nav class="navbar navbar-expand">
 
 			  <!-- Links -->
 			  <ul class="navbar-nav nav-fill w-100">
 			    <li class="nav-item">
-			      <a class="nav-link text-light" href="#">Camera</a>
+			      <a class="nav-link text-light" data-link="camera-content" href="#">Camera</a>
 			    </li>
 			    <li class="nav-item">
-			      <a class="nav-link text-light custom-active" href="#">Home</a>
+			      <a class="nav-link text-light custom-active" data-link="home-content" href="#">Home</a>
 			    </li>
 			    <li class="nav-item">
-			      <a class="nav-link text-light" href="#">History</a>
+			      <a class="nav-link text-light" data-link="history-content" href="#">History</a>
 			    </li>
 			  </ul>
 
 			</nav>
 			<div class="content-wrapper">
-				<div class="camera-content row">
+				<div class="camera-content row" style="display:none">
 			    	<div class="col-sm-12" style="background-color:yellow;">
-			    	<p>Camera Content</p>
+			    		<p>Camera Content</p>
+			    	</div>
 			    </div>
 
 			    <div class="home-content row">
 			    	<div class="col-sm-12" style="background-color:yellow;">
-			    	<p>Home Content</p>
+				    	<p>Home Content</p>
+				    </div>
 			    </div>
 
-			    <div class="history-content row">
+			    <div class="history-content row" style="display:none">
 			    	<div class="col-sm-12" style="background-color:yellow;">
-			    	<p>History Content</p>
+				    	<p>History Content</p>
+				    </div>
 			    </div>
 			</div>
-		  </div>
 		</div>
 
 
