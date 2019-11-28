@@ -29,6 +29,9 @@
 </head>
 
 <body>
+	<!-- Page Scripts -->
+	<script type="text/javascript" src="./javascript/camera_page.js"></script>
+
 	<script type="text/javascript" src="cordova.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -49,6 +52,11 @@
 				var dclass = $(this).attr("data-link");
 				console.log($("div." + dclass));
 				$("div." + dclass).show();
+
+				// Enable Camera streaming if camera tab is shown
+				if (dclass = "camera-content") {
+					startCameraStreaming();
+				}
 			});
 		});
 	</script>
@@ -82,7 +90,7 @@
 		<div class="content-wrapper">
 			<div class="camera-content row" style="display:none">
 				<div class="col-sm-12" style="background-color:yellow;">
-					<p>Camera Content</p>
+					<video id="video" width="640" height="480" autoplay></video>
 				</div>
 			</div>
 
